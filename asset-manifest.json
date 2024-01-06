@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/starnavi_test-assignment/static/css/main.4d6d5207.css",
+    "main.js": "/starnavi_test-assignment/static/js/main.73dcf641.js",
+    "static/media/logo.png": "/starnavi_test-assignment/static/media/logo.0780b55c799e5e37834e.png",
+    "static/media/close.svg": "/starnavi_test-assignment/static/media/close.445b45bfc7fa1b7f7f4b.svg",
+    "index.html": "/starnavi_test-assignment/index.html",
+    "static/media/arrow-down.svg": "/starnavi_test-assignment/static/media/arrow-down.fec7c4b5879081015315.svg",
+    "main.4d6d5207.css.map": "/starnavi_test-assignment/static/css/main.4d6d5207.css.map",
+    "main.73dcf641.js.map": "/starnavi_test-assignment/static/js/main.73dcf641.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4d6d5207.css",
+    "static/js/main.73dcf641.js"
+  ]
+}
