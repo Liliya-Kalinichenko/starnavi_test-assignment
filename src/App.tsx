@@ -8,14 +8,15 @@ import { Grid } from './components/Grid';
 import { HoveredList } from './components/HoveredList/HoveredList';
 import { StartButton } from './components/StartButton';
 import { ErrorModal } from './components/ErrorModal/ErrorModal';
-
+import { Loader } from './components/Loader';
 
 const App: React.FC = () => {
   const [modes, setModes] = useState<Mode[]>([]);
-  const [selectedMode, setSelectedMode] = useState<Mode | null>(null);
+  const [selectedField, setSelectedField] = useState<Mode | null>(null);
   const [grid, setGrid] = useState<Cell[][]>([]);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const isCellHovered = grid.some(rows => 
     rows.some(cell => cell.isHovered));
@@ -24,35 +25,36 @@ const App: React.FC = () => {
     fetch(BASE_URL)
       .then((response) => response.json())
       .then((data: Mode[]) => setModes(data.slice(0, 3)))
-      .catch(() => {
+      .catch((e) => {
         setIsError(true)
-      })
+      });
   }, []);
 
   useEffect(() => {
     setIsGameStarted(false);
 
-    if (selectedMode) {
-      const newGrid = Array.from({ length: selectedMode.field}, (_, row) =>
-        Array.from({ length: selectedMode.field }, (_, col) => ({
+    if (selectedField) {
+      const newGrid = Array.from({ length: selectedField.field}, (_, row) =>
+        Array.from({ length: selectedField.field }, (_, col) => ({
           id: `${row + 1}-${col + 1}`,
           isHovered: false,
         }))
       );
 
-      console.log('Generated grid:', newGrid);
       setGrid(newGrid);
     }
 
-  }, [selectedMode]);
+  }, [selectedField]);
 
-  console.log('StateGrid:', grid);
 
-  const handleStartGame = () => {   
-    
-    setIsGameStarted(true);
-    
-    if (!isCellHovered) {
+  const handleStartGame = () => {
+    if (!isGameStarted) {
+      setIsGameStarted(true);
+      setIsLoading(true)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 500)
+  
       return;
     }
 
@@ -70,8 +72,9 @@ const App: React.FC = () => {
     <div className="App">
       <main className="App__main container">
         <div className="App__top">
-          <div className="App__logo"></div>
-          <h1 className="App__title">{`Hover Game`}</h1>          
+          <div className="App__logo"/>
+          
+          <h1 className="App__title">{`Hover Game`}</h1>
         </div>        
           {isError && <ErrorModal onClose={setIsError}/>}
         
@@ -79,17 +82,19 @@ const App: React.FC = () => {
             <div className="App__game-control">
               <ModeSelect 
                 modes={modes}
-                currentOption={selectedMode} 
-                onSelect={setSelectedMode} 
+                onSelect={setSelectedField}
+                currentOption={selectedField} 
               />
               <StartButton 
                 onStart={handleStartGame} 
-                selectedMode={selectedMode}
+                selectedField={selectedField}
                 isGameStarted= {isGameStarted} 
               />
             </div>
 
-            {!!selectedMode && isGameStarted && (
+            {isLoading && <Loader />}
+
+            {!!selectedField && isGameStarted && !isLoading &&(
               <div className="App__game-content">
                 <Grid grid={grid} setGrid={setGrid} />
                 <HoveredList grid={grid} isCellHovered={isCellHovered}/>

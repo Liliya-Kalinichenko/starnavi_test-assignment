@@ -23,7 +23,6 @@ export const ModeSelect: React.FC<Props> = ({modes, onSelect, currentOption}) =>
   return (
     <div className="ModeSelect">
       <button
-        id="triger"
         type="button"
         className="ModeSelect__triger"
         onClick={() => setIsSelectOpen(!isSelectOpen)}

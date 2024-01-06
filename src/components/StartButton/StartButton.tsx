@@ -3,17 +3,17 @@ import './StartButton.scss';
 
 type Props = {
   onStart: () => void,
-  selectedMode: Mode | null,
+  selectedField: Mode | null,
   isGameStarted: boolean
 }
 
-export const StartButton: React.FC<Props> = ({ onStart, selectedMode, isGameStarted }) => {
+export const StartButton: React.FC<Props> = ({ onStart, selectedField, isGameStarted }) => {
   return (
     <button 
       type="button"
       className="StartButton"
       onClick={onStart}
-      disabled={!selectedMode}
+      disabled={!selectedField}
     >
       {isGameStarted ? 'Restart': 'Start'}
     </button>

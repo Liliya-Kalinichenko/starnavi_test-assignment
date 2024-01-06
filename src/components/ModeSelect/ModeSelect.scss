@@ -23,8 +23,7 @@
     align-items: center;
     justify-content: space-between;
     color: lavenderblush;
-    border-radius: 5px;
-    
+    border-radius: 5px;    
     text-transform: uppercase;
   }
 
@@ -47,6 +46,7 @@
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     animation: fade-in-down 0.5s ease-in-out ;
+    z-index: 1;
 
     &-option {
       height: 32px;      

@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { Cell } from '../../types/Cell';
 import './Grid.scss';
 
@@ -24,19 +25,20 @@ export const Grid: React.FC<Props> = ({ grid, setGrid }) => {
       <div className="Grid__container">
         <div
           className="Grid__content"
-          style={{ gridTemplateColumns: `repeat(${grid.length}, 40px)`}}
+          style={{ gridTemplateColumns: `repeat(${grid.length}, 35px)`}}
         >
           {grid.map((rows) =>
             rows.map((cell) => (
-              <div
-                className={cell.isHovered ? 'Grid__cell hovered' : 'Grid__cell'}
-                key={cell.id}                
+              <div className={cn('Grid__cell', {
+                  hovered: cell.isHovered,
+                })}
+                key={cell.id}
                 onMouseEnter={() => handleCellHover(cell.id)}
-              ></div>
+              />
             ))
           )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

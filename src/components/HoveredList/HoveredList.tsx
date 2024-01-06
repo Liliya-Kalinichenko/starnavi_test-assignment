@@ -9,7 +9,8 @@ type Props = {
 export const HoveredList: React.FC<Props> = ({ grid, isCellHovered }) => {
   return (
     <div className="HoveredList">
-      <h2 className="HoveredList__title" >Hovered Cells:</h2>
+      <h2 className="HoveredList__title">Hovered Cells:</h2>
+      
       {!isCellHovered ? (
         <p className="HoveredList__info">Lets hover some cells!</p>
       ) : (
