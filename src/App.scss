@@ -1,0 +1,62 @@
+.App {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #09203f 0%, #537895 100%);
+  color: #f68084;
+
+  &__top {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  &__logo {
+    width: 32px;
+    height: 32px;
+    background-image: url('./assests/logo.png');
+    background-size: contain;
+  }
+
+  &__main {
+    padding: 40px 0 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__game {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-width: 80%;
+
+    &-control {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    &-content {
+      display: flex;
+      gap: 40px;
+    }
+  }
+}
+
+.container {
+  padding-inline: 10%;
+  @media (max-width: 768px) {
+    padding-inline: 5%;
+  }
+}
+
+
+.is-error {
+  border-color: rgba(222, 68, 101, 0.764);;
+}
+

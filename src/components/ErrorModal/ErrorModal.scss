@@ -1,0 +1,46 @@
+.ErrorModal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(49, 71, 88, 0.66);
+
+  &__content {
+    position: relative;
+    width: 50vw;
+    height: 40vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3ebec;    
+  }
+
+  &__info {
+    text-align: center;
+    font-size: 16px;
+    color: rgba(222, 68, 101, 0.764);
+    font-weight: 500;
+  }
+
+  &__button {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 10px;
+    right: 10px;
+    background-size: contain;
+    background-image: url('../../assests/close.svg');
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(50, 69, 112, 0.2);
+      border-radius: 5px;
+    }
+  }
+}
