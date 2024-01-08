@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { Cell } from '../../types/Cell';
 import './Grid.scss';
 
-type Props = {
+interface Props {
   grid: Cell[][],
   setGrid: (newGrid: Cell[][])=> void,
 }
@@ -30,7 +30,7 @@ export const Grid: React.FC<Props> = ({ grid, setGrid }) => {
           {grid.map((rows) =>
             rows.map((cell) => (
               <div className={cn('Grid__cell', {
-                  hovered: cell.isHovered,
+                  hovered: !!cell.isHovered,
                 })}
                 key={cell.id}
                 onMouseEnter={() => handleCellHover(cell.id)}

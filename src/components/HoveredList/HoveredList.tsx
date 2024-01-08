@@ -1,7 +1,7 @@
 import { Cell } from '../../types/Cell';
 import './HoveredList.scss';
 
-type Props = {
+interface Props {
   grid: Cell[][],
   isCellHovered: boolean,
 }

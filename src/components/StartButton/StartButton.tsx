@@ -1,7 +1,7 @@
 import { Mode } from '../../types/Mode';
 import './StartButton.scss';
 
-type Props = {
+interface Props {
   onStart: () => void,
   selectedField: Mode | null,
   isGameStarted: boolean

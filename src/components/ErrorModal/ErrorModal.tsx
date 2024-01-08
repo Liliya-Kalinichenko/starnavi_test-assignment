@@ -1,7 +1,7 @@
 import './ErrorModal.scss';
 
-type Props = {
-  onClose: (data: boolean) => void,
+interface Props {
+  onClose: (value: boolean) => void,
 }
 
 export const ErrorModal: React.FC<Props> = ({onClose}) => (

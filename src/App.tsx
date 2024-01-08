@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import { BASE_URL } from './helpers/constats';
+import { BASE_URL, MAX_FIELD_SIZE, MIN_FIELD_SIZE } from './helpers/constants';
 import { Cell } from './types/Cell';
 import { Mode } from './types/Mode';
-import { ModeSelect } from './components/ModeSelect';
-import { Grid } from './components/Grid';
 import { HoveredList } from './components/HoveredList/HoveredList';
-import { StartButton } from './components/StartButton';
 import { ErrorModal } from './components/ErrorModal/ErrorModal';
-import { Loader } from './components/Loader';
+import { ModeSelect } from './components/ModeSelect/ModeSelect';
+import { StartButton } from './components/StartButton/StartButton';
+import { Loader } from './components/Loader/Loader';
+import { Grid } from './components/Grid/Grid';
 
 const App: React.FC = () => {
   const [modes, setModes] = useState<Mode[]>([]);
@@ -24,9 +24,13 @@ const App: React.FC = () => {
   useEffect(() => {
     fetch(BASE_URL)
       .then((response) => response.json())
-      .then((data: Mode[]) => setModes(data.slice(0, 3)))
+      .then((data: Mode[]) => {
+        setModes(
+          data.filter(mode => 
+            mode.field <= MAX_FIELD_SIZE && mode.field >= MIN_FIELD_SIZE));
+      })
       .catch((e) => {
-        setIsError(true)
+        setIsError(true);
       });
   }, []);
 
@@ -75,7 +79,7 @@ const App: React.FC = () => {
           <div className="App__logo"/>
           
           <h1 className="App__title">{`Hover Game`}</h1>
-        </div>        
+        </div>
           {isError && <ErrorModal onClose={setIsError}/>}
         
           <div className="App__game">

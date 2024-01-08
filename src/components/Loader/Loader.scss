@@ -1,3 +1,5 @@
+@import '../../styles/main.scss';
+
 .Loader {
   display: flex;
   width: 100%;
@@ -12,22 +14,7 @@
     margin: 1em auto;
     border: 0.2em solid #f5adaf8c;
     border-left-color: #09203f74;
-    animation: load8 1.2s infinite linear;
+    animation: load 1.2s infinite linear;
   }
 }
 
-@keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.in-block {
-  position: absolute;
-  z-index: 2;
-  background-color: #a5c7e145;
-  border-radius: inherit;
-}

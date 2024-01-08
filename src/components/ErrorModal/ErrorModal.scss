@@ -1,3 +1,5 @@
+@import '../../styles/main.scss';
+
 .ErrorModal {
   width: 100vw;
   height: 100vh;
@@ -8,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(49, 71, 88, 0.66);
+  background-color: $modal-background;
 
   &__content {
     position: relative;
@@ -18,13 +20,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f3ebec;    
+    background-color: $white;    
   }
 
   &__info {
     text-align: center;
     font-size: 16px;
-    color: rgba(222, 68, 101, 0.764);
+    color: $dark-pink;
     font-weight: 500;
   }
 
@@ -39,7 +41,7 @@
 
     &:hover {
       cursor: pointer;
-      background-color: rgba(50, 69, 112, 0.2);
+      background-color: $modal-background;
       border-radius: 5px;
     }
   }

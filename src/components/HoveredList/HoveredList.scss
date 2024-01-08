@@ -1,3 +1,5 @@
+@import '../../styles/main.scss';
+
 .HoveredList {
   width: 100%;
 
@@ -7,7 +9,7 @@
 
   &__info {
     margin-top: 32px;
-    color: lavenderblush;
+    color: $white;
     animation: fade-in-down 0.5s ease-in-out;
   }
 
@@ -24,21 +26,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: lightsteelblue;
+      background-color: $blue-background;
       border-radius: 5px;
-      color: rgb(36, 50, 81);
+      color: $dark-blue;
       font-size: 12px;
     }
-  }
-}
-
-@keyframes fade-in-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

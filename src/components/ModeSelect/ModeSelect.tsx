@@ -3,7 +3,7 @@ import './ModeSelect.scss';
 import { Mode } from '../../types/Mode';
 import classNames from 'classnames';
 
-type Props = {
+interface Props {
   modes: Mode[],
   onSelect: (option: Mode) => void,
   currentOption: Mode | null,
